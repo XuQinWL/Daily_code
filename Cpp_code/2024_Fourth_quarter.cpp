@@ -6,71 +6,266 @@
 #include<algorithm>
 #include<stdio.h>
 using namespace std;
-
-class Node {
-public:
-    int val;
-    Node* next;
-    Node* random;
-    Node(int _val) {
-        val = _val;
-        next = NULL;
-        random = NULL;
+void fun(string s) {
+    string p = s;
+    cout << p;
+}
+int main()
+{
+    string s = "sdf";
+    fun(s);
+    cout << s[1];
+    /*double d = 3.1423;
+    d = round(d * 100) / 100;
+    cout << d;*/
+    /*int a = 0, b = 0;
+    for (a = 1, b = 1; a <= 100; a++)
+    {
+        if (b >= 20) break;
+        if (b % 3 == 1)
+        {
+            b = b + 3;
+            continue;
+        }
+        b = b - 5;
     }
-};
-struct Node* copyRandomList(struct Node* head);
-int main() {
-    Node a(7);
-    Node b(13);
-    a.next = &b;
-    a.random= &b;
-    b.random = &b;
-    Node* c = copyRandomList(&a);
-
+    printf("%d\n", a);*/
     return 0;
 }
+//int main()
+//{
+//	bit::list<pair<string, int>> lt1;
+//	// 这里达到的效果是push_back做不到的
+//	//lt1.emplace_back({ "苹果", 1 }); // 不支持
+//	lt1.emplace_back("苹果", 1 ); // 
+//	cout << "*********************************" << endl;
+//
+//	lt1.push_back({ "苹果", 1 });
+//	cout << "*********************************" << endl;
+//
+//	return 0;
+//}
+//typedef long long ll;
+//
+//ll arr[102][102];
+//ll n, m;
+//
+//int main()
+//{
+//    cin >> n >> m;
+//
+//    for (ll j = 1; j <= m; j++)
+//    {
+//        for (ll i = 1; i <= n; i++)
+//        {
+//            cin >> arr[i][j];
+//        }
+//    }
+//
+//    for (ll i = 1; i <= n; i++)
+//    {
+//        for (ll j = 1; j <= m; j++)
+//        {
+//            cout << arr[i][j] << ' ';
+//        }
+//
+//        cout << endl;
+//
+//    }
+//
+//    return 0;
+//}
+//void Swap(int* a, int* b)
+//{
+//	int tmp = *a;
+//	*a = *b;
+//	*b = *a;
+//}
+//void QuickSort(int* a, int left, int right)
+//{
+//	if (left >= right)
+//	{
+//		return;
+//	}
+//
+//	int keyi = left;
+//	int begin = left, end = right;
+//	while (left < right)
+//	{
+//		while (left < right && a[right] >= a[keyi])
+//			right--;
+//
+//		while (left < right && a[left] <= a[keyi])
+//			left++;
+//
+//		Swap(&a[left], &a[right]);
+//	}
+//	Swap(&a[keyi], &a[left]);
+//	keyi = left;
+//
+//	QuickSort(a, begin, keyi - 1);
+//	QuickSort(a, keyi + 1, end);
+//}
+//
+//int* sortArray(int* nums, int numsSize)
+//{
+//	int* a = (int*)malloc(sizeof(int) * numsSize);
+//	memmove(a, nums, sizeof(int) * numsSize);
+//
+//	QuickSort(a, 0, numsSize - 1);
+//	 cout << a[0] << " "<<a[1]<<" ";
+//	return a;
+//}
+//int main() {
+//	int a[] = { 5,1 };
+//	sortArray(a,sizeof a);
+//	return 0;
+//}
+//}
+//int main()
+//{
+//	int a, b, c;
+//	a = b//= c;
+//	/*i// a[//= { 12,2 };
+////or (auto e : a//{
+//		cout << e;
+//	}*//
+//	//const char* p =//abcd";
+//	//c//t << s//len(&p);
+//	// 可以通过汇编观察程序是否//
+//	// 有call Add语句就是没有展//没有就是展开了
+//	/*int n //1;
+//	n /= 2;
+//	Add(1, 2);*/////	//cout << Ad//1, 2) * 5 // endl;
+//	retu// 0;
+//}
 
-    struct Node* copyRandomList(struct Node* head) {
-        struct Node* cur = head;
-        if (cur == NULL) return NULL;
-        struct Node* newhead = (struct Node*)malloc(sizeof(struct Node));
-        newhead->val = cur->val;
-        struct Node* newnode = newhead;
-        cur = cur->next;
-        while (cur) {
-            struct Node* node = (struct Node*)malloc(sizeof(struct Node));
-            newnode->next = node;
-            node->val = cur->val;
-            node->next = NULL;
-            newnode = newnode->next;
-        }
-        cur = head;
-        newnode = newhead;
-        while (newnode) {
-            if (cur->random == NULL) {
-                newnode->random = NULL;
-                newnode = newnode->next;
-                cur = cur->next;
-            }
-            else {
-                int count = 0;
-                struct Node* pos = head;
-                while (cur->random != pos) {
-                    pos = pos->next;
-                    count++;
-                }
-                struct Node* newpos = newhead;
-                while (count) {
-                    newpos = newpos->next;
-                    count--;
-                }
-                newnode->random = newpos;
-                newnode = newnode->next;
-                cur = cur->next;
-            }
-        }
-        return newhead;
-    }
+
+//class Swapa
+//{
+///ublic:
+//  //friend ostream& operator<<(ostream& _cout, Swapa& d);
+//    Swapa(int x = 0)
+//    {
+//        _x = x;
+//    }
+//private:
+//    int _x;
+//};
+//ostream& operator<<(ostream& _cout, Swapa& d)
+//{
+//    _cout << d._x;
+//    return _cout;
+//}
+//
+//template<class T>
+//void Swap(T left, T right)
+//{
+//    T tmp = left;
+//    left = right;
+//    right = tmp;
+//    //cout << "leftf=" <<left << " " << "rightf=" <<right << endl;
+//}
+//
+//template<>
+//void Swap<Swapa*>(Swapa* left, Swapa* right)
+//{
+//    Swapa tmp = *left;
+//    *left = *right;
+//    *right = tmp;
+//    cout << *left <<endl << *right<<endl;
+//}
+//
+//int main()
+//{
+//    vector<int> v;
+//    v.push_back(1);
+//    v.reserve(10);
+//    v[4] = 2;
+//    //cout << v.size() << endl;
+//    //cout << v.capacity() << endl;
+//    /*int a = 1;
+//    int b = 2;
+//    Swap(a, b);
+//    cout << a << "-" << b << endl;
+//
+//    Swapa s1(111);
+//    Swapa s2(211);
+//    Swapa* a1 = &s1;
+//    Swapa* a2 = &s2;
+//    Swap(a1, a2);
+//    cout << s1 << endl << s1;*/
+//    /*list<int> l;
+//    list<int>::const_iterator ci = l.begin();*/
+//    /*int arr[2][2] = { 0 };
+//    cout << &arr << endl;
+//    cout << &arr + 1 << endl;*/
+//    return 0;
+//}
+//class Node {
+//public:
+//    int val;
+//    Node* next;
+//    Node* random;
+//    Node(int _val) {
+//        val = _val;
+//        next = NULL;
+//        random = NULL;
+//    }
+//};
+//struct Node* copyRandomList(struct Node* head);
+//int main() {
+//    Node a(7);
+//    Node b(13);
+//    a.next = &b;
+//    a.random= &b;
+//    b.random = &b;
+//    Node* c = copyRandomList(&a);
+//
+//    return 0;
+//}
+//
+//    struct Node* copyRandomList(struct Node* head) {
+//        struct Node* cur = head;
+//        if (cur == NULL) return NULL;
+//        struct Node* newhead = (struct Node*)malloc(sizeof(struct Node));
+//        newhead->val = cur->val;
+//        struct Node* newnode = newhead;
+//        cur = cur->next;
+//        while (cur) {
+//            struct Node* node = (struct Node*)malloc(sizeof(struct Node));
+//            newnode->next = node;
+//            node->val = cur->val;
+//            node->next = NULL;
+//            newnode = newnode->next;
+//        }
+//        cur = head;
+//        newnode = newhead;
+//        while (newnode) {
+//            if (cur->random == NULL) {
+//                newnode->random = NULL;
+//                newnode = newnode->next;
+//                cur = cur->next;
+//            }
+//            else {
+//                int count = 0;
+//                struct Node* pos = head;
+//                while (cur->random != pos) {
+//                    pos = pos->next;
+//                    count++;
+//                }
+//                struct Node* newpos = newhead;
+//                while (count) {
+//                    newpos = newpos->next;
+//                    count--;
+//                }
+//                newnode->random = newpos;
+//                newnode = newnode->next;
+//                cur = cur->next;
+//            }
+//        }
+//        return newhead;
+//    }
 
 //int a = 1;
 //int* func() {
